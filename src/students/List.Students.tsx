@@ -10,7 +10,7 @@ import {
 
 const ListStudents: React.FC<ListProps> = (props) => (
   <List {...props} perPage={10}>
-    <Datagrid>
+    <Datagrid rowClick="edit">
       <TextField source="nombre" />
       <ReferenceField source="groupId" reference="groups" label="Grupo">
         <TextField source="nombre" />
