@@ -8,14 +8,15 @@ import {
   SelectInput,
   NumberInput,
 } from "react-admin";
+import { emailRequiredValidate, requiredValidate } from "../utils/validators";
 
 const EditStudent: React.FC<EditProps> = (props) => {
   return (
     <Edit {...props} title="Editar Estudiante">
       <SimpleForm>
-        <TextInput source="nombre" autofocus />
-        <TextInput source="email" />
-        <NumberInput source="edad" />
+        <TextInput source="nombre" autofocus validate={requiredValidate} />
+        <TextInput source="email" validate={emailRequiredValidate} />
+        <NumberInput source="edad" validate={requiredValidate} />
         <SelectInput
           source="sexo"
           choices={[
@@ -23,16 +24,23 @@ const EditStudent: React.FC<EditProps> = (props) => {
             { id: 2, name: "Femenino" },
           ]}
           optionValue="name"
+          validate={requiredValidate}
         />
-        <DateInput source="fechaNacimiento" />
+        <DateInput source="fechaNacimiento" validate={requiredValidate} />
         <ReferenceInput
           source="ciudadNacimiento"
           reference="cities"
           label="Ciudad de Nacimiento"
+          validate={requiredValidate}
         >
           <SelectInput optionText="nombre" />
         </ReferenceInput>
-        <ReferenceInput source="groupId" reference="groups" label="Grupo">
+        <ReferenceInput
+          source="groupId"
+          reference="groups"
+          label="Grupo"
+          allowEmpty
+        >
           <SelectInput optionText="nombre" />
         </ReferenceInput>
       </SimpleForm>
