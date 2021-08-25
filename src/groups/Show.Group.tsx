@@ -7,6 +7,7 @@ import {
   useShowController,
   ReferenceField,
   Button,
+  NumberField,
 } from "react-admin";
 import { makeStyles } from "@material-ui/core/styles";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -30,10 +31,12 @@ const ShowGroup = (props: any) => {
           fullWidth
         >
           <Datagrid>
-            <ReferenceField source="id" reference="students">
+            <ReferenceField source="id" reference="students" label="Nombre">
               <TextField source="nombre" />
             </ReferenceField>
             <TextField source="email" />
+            <NumberField source="edad" />
+            <TextField source="sexo" />
           </Datagrid>
         </ReferenceManyField>
         <div className={classes.spacer}>&nbsp;</div>

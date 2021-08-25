@@ -22,6 +22,7 @@ const CreateStudent: React.FC<CreateProps> = (props) => {
             { id: 1, name: "Masculino" },
             { id: 2, name: "Femenino" },
           ]}
+          optionValue="name"
         />
         <DateInput source="fechaNacimiento" />
         <ReferenceInput
