@@ -109,8 +109,28 @@ const dataProvider = {
     resource: string,
     params: GetManyReferenceParams
   ): Promise<GetManyReferenceResult<RecordType>> => {
-    console.log(resource, params); // ! dev
-    return { data: [] as RecordType[], total: 0 };
+    const query: Query = {};
+    if (params.target && params.id) {
+      query[params.target as keyof Query] = params.id;
+    }
+
+    const { page, perPage } = params.pagination || {};
+    const { field, order } = params.sort || {};
+    const { filter } = params;
+
+    // pagination
+    if (page && perPage) {
+      query.$limit = perPage;
+      query.$skip = perPage * (page - 1);
+    }
+    // order
+    if (order) {
+      query.$sort = { [field]: order === "DESC" ? -1 : 1 };
+    }
+    // filter
+    Object.assign(query, filter ? flatten(filter, "", queryOperators) : {});
+
+    return feathersClient.service(resource).find({ query });
   },
 
   getOne: async <RecordType>(

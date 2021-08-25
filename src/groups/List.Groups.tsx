@@ -5,10 +5,11 @@ import {
   ReferenceField,
   TextField,
 } from "react-admin";
+import ShowGroup from "./Show.Group";
 
 const ListGroups: React.FC<ListProps> = (props) => (
   <List {...props} perPage={10} title="Grupos">
-    <Datagrid rowClick="edit">
+    <Datagrid rowClick="expand" expand={<ShowGroup />}>
       <TextField source="nombre" />
       <ReferenceField
         source="guiaId"
