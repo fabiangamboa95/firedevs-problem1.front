@@ -8,15 +8,20 @@ import {
   FormTab,
   SimpleFormIterator,
   ArrayInput,
-  TextField,
 } from "react-admin";
+import { requiredValidate } from "../utils/validators";
 
 const CreateGroup: React.FC<CreateProps> = (props) => {
   return (
     <Create {...props} title="Crear Grupo">
       <TabbedForm redirect="/groups">
         <FormTab label="Informacion">
-          <TextInput source="nombre" label="Nombre" autoFocus />
+          <TextInput
+            source="nombre"
+            label="Nombre"
+            autoFocus
+            validate={requiredValidate}
+          />
           <ReferenceInput
             source="guiaId"
             reference="professors"
@@ -43,11 +48,6 @@ const CreateGroup: React.FC<CreateProps> = (props) => {
       </TabbedForm>
     </Create>
   );
-};
-
-const SomeComponent = (props: any) => {
-  console.log(props.choices);
-  return <div>{props.choices[0].nombre}</div>;
 };
 
 export default CreateGroup;

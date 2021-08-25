@@ -9,13 +9,19 @@ import {
   SelectInput,
   TextInput,
 } from "react-admin";
+import { requiredValidate } from "../utils/validators";
 
 const EditGroup: React.FC<EditProps> = (props) => {
   return (
     <Edit {...props} title="Editar Grupo">
       <TabbedForm>
         <FormTab label="Informacion">
-          <TextInput source="nombre" label="Nombre" autoFocus />
+          <TextInput
+            source="nombre"
+            label="Nombre"
+            autoFocus
+            validate={requiredValidate}
+          />
           <ReferenceInput
             source="guiaId"
             reference="professors"
