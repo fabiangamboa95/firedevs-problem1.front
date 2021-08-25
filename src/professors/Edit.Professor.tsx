@@ -1,4 +1,4 @@
-import { Create, EditProps, Edit, SimpleForm, TextInput } from "react-admin";
+import { EditProps, Edit, SimpleForm, TextInput } from "react-admin";
 import { emailValidate, requiredValidate } from "../utils/validators";
 
 const EditProfessor: React.FC<EditProps> = (props) => {
