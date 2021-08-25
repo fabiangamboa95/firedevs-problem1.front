@@ -3,7 +3,7 @@ import { requiredValidate, emailValidate } from "../utils/validators";
 
 const CreateProfessor: React.FC<CreateProps> = (props) => {
   return (
-    <Create {...props}>
+    <Create {...props} title="Crear Profesor">
       <SimpleForm redirect="/professors">
         <TextInput
           source="nombre"
