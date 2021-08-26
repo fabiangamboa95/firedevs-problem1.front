@@ -4,8 +4,6 @@ import ListCities from "./List.Cities";
 const Cities = {
   icon: LocationCityIcon,
   list: ListCities,
-  // create: CreateCity,
-  // edit: {},
 };
 
 export default Cities;

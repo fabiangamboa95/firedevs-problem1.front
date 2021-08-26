@@ -1,11 +1,11 @@
 import { Create, CreateProps, SimpleForm, TextInput } from "react-admin";
-import { CUDToolbar } from "../utils/CUDrawer";
+import { QFDrawerToolbar } from "../utils/QuickFormDrawer";
 import { requiredValidate, emailValidate } from "../utils/validators";
 
 const CreateProfessor: React.FC<CreateProps> = (props) => {
   return (
     <Create {...props} title=" ">
-      <SimpleForm redirect="/professors" toolbar={<CUDToolbar />}>
+      <SimpleForm redirect="/professors" toolbar={<QFDrawerToolbar />}>
         <TextInput
           source="nombre"
           label="Nombre"

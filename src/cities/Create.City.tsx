@@ -1,10 +1,10 @@
 import { Create, CreateProps, SimpleForm, TextInput } from "react-admin";
 import { requiredValidate } from "../utils/validators";
-import { CUDToolbar } from "../utils/CUDrawer";
+import { QFDrawerToolbar } from "../utils/QuickFormDrawer";
 
 const CreateCity: React.FC<CreateProps> = (props) => (
   <Create {...props} title=" ">
-    <SimpleForm redirect="/cities" toolbar={<CUDToolbar />}>
+    <SimpleForm toolbar={<QFDrawerToolbar />}>
       <TextInput source="nombre" autoFocus validate={requiredValidate} />
     </SimpleForm>
   </Create>

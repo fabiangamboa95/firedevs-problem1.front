@@ -1,5 +1,5 @@
 import { EditProps, Edit, SimpleForm, TextInput } from "react-admin";
-import { CUDToolbar } from "../utils/CUDrawer";
+import { QFDrawerToolbar } from "../utils/QuickFormDrawer";
 import { emailValidate, requiredValidate } from "../utils/validators";
 import { useParams } from "react-router";
 
@@ -12,7 +12,7 @@ const EditProfessor: React.FC<EditProps> = (props) => {
 
   return (
     <Edit id={id} {...props} title=" ">
-      <SimpleForm toolbar={<CUDToolbar />}>
+      <SimpleForm toolbar={<QFDrawerToolbar />}>
         <TextInput
           source="nombre"
           label="Nombre"

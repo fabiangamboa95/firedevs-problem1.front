@@ -1,6 +1,6 @@
 import { Datagrid, List, ListProps, TextField } from "react-admin";
 import { Route, Switch } from "react-router";
-import CUDrawer, { CUListActions } from "../utils/CUDrawer";
+import QuickFormDrawer, { QFDListActions } from "../utils/QuickFormDrawer";
 import CreateProfessor from "./Create.Professor";
 import EditProfessor from "./Edit.Professor";
 
@@ -10,7 +10,7 @@ const ListProfessors: React.FC<ListProps> = (props) => (
       {...props}
       perPage={10}
       title="Lista de Profesores"
-      actions={<CUListActions />}
+      actions={<QFDListActions />}
     >
       <Datagrid rowClick="edit">
         <TextField source="nombre" />
@@ -19,14 +19,14 @@ const ListProfessors: React.FC<ListProps> = (props) => (
     </List>
     <Switch>
       <Route path="/professors/create" exact>
-        <CUDrawer {...props}>
+        <QuickFormDrawer {...props}>
           <CreateProfessor {...props} />
-        </CUDrawer>
+        </QuickFormDrawer>
       </Route>
       <Route path="/professors/:id">
-        <CUDrawer {...props}>
+        <QuickFormDrawer {...props}>
           <EditProfessor {...props} />
-        </CUDrawer>
+        </QuickFormDrawer>
       </Route>
     </Switch>
   </>
