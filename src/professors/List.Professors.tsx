@@ -9,7 +9,7 @@ const ListProfessors: React.FC<ListProps> = (props) => (
     <List
       {...props}
       perPage={10}
-      title="Lista de Profesores"
+      title="Listado de Profesores"
       actions={<QFDListActions />}
     >
       <Datagrid rowClick="edit">

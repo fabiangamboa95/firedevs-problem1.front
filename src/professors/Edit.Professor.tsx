@@ -14,7 +14,7 @@ const EditProfessor: React.FC<EditProps> = (props) => {
   return (
     <Edit id={id} {...props} title=" ">
       <SimpleForm toolbar={<QFDrawerToolbar />}>
-        <Typography variant="h6">Editar Profesor</Typography>
+        <Typography variant="h6">Actualizar Profesor</Typography>
         <div style={{ height: 20 }}>&nbsp;</div>
         <TextInput
           source="nombre"
