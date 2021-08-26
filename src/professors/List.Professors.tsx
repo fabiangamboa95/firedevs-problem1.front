@@ -1,7 +1,8 @@
 import { Datagrid, List, ListProps, TextField } from "react-admin";
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
 import CUDrawer, { CUListActions } from "../utils/CUDrawer";
 import CreateProfessor from "./Create.Professor";
+import EditProfessor from "./Edit.Professor";
 
 const ListProfessors: React.FC<ListProps> = (props) => (
   <>
@@ -16,11 +17,18 @@ const ListProfessors: React.FC<ListProps> = (props) => (
         <TextField source="email" />
       </Datagrid>
     </List>
-    <Route path="/professors/create">
-      <CUDrawer {...props}>
-        <CreateProfessor {...props} />
-      </CUDrawer>
-    </Route>
+    <Switch>
+      <Route path="/professors/create" exact>
+        <CUDrawer {...props}>
+          <CreateProfessor {...props} />
+        </CUDrawer>
+      </Route>
+      <Route path="/professors/:id">
+        <CUDrawer {...props}>
+          <EditProfessor {...props} />
+        </CUDrawer>
+      </Route>
+    </Switch>
   </>
 );
 
