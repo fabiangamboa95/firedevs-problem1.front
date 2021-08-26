@@ -5,7 +5,7 @@ import CreateCity from "./Create.City";
 const Cities = {
   icon: LocationCityIcon,
   list: ListCities,
-  create: CreateCity,
+  // create: CreateCity,
   // edit: {},
 };
 
