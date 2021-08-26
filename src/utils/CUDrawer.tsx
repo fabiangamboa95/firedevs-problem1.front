@@ -1,5 +1,5 @@
 import { Button, Toolbar, Drawer } from "@material-ui/core";
-import { SaveButton } from "react-admin";
+import { SaveButton, CardActions, CreateButton } from "react-admin";
 import { useHistory } from "react-router";
 
 interface CUDProps {
@@ -17,7 +17,11 @@ const CUDrawer: React.FC<CUDProps> = (props) => {
   );
 };
 
-export const CUDToolbar: React.FC<CUDProps> = (props) => {
+interface CUToolbarProps {
+  basePath?: string | undefined;
+}
+
+export const CUDToolbar: React.FC<CUToolbarProps> = (props) => {
   const history = useHistory();
   const { basePath } = props;
 
@@ -33,5 +37,11 @@ export const CUDToolbar: React.FC<CUDProps> = (props) => {
     </Toolbar>
   );
 };
+
+export const CUListActions = ({ basePath }: { basePath?: string }) => (
+  <CardActions>
+    <CreateButton basePath={basePath} />
+  </CardActions>
+);
 
 export default CUDrawer;
