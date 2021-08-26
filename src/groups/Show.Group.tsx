@@ -49,7 +49,11 @@ const ShowGroup = (props: any) => {
           >
             <PersonAddIcon />
           </Button>
-          <EditButton basePath="/groups" label="Editar Grupo" record={record} />
+          <EditButton
+            basePath="/groups"
+            label="Actualizar Grupo"
+            record={record}
+          />
         </div>
       </CardContent>
     </Card>
