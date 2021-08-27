@@ -6,7 +6,6 @@ import {
   NumberField,
   ReferenceField,
   TextField,
-  Empty,
 } from "react-admin";
 import { Route, Switch } from "react-router";
 import QuickFormDrawer, { QFDListActions } from "../utils/QuickFormDrawer";
