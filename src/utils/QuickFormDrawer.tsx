@@ -1,7 +1,11 @@
 import { Button, Toolbar, Drawer } from "@material-ui/core";
 import { SaveButton, CardActions, CreateButton, useRefresh } from "react-admin";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { useStore } from "react-redux";
+
+interface IdParams {
+  id?: string;
+}
 
 interface QFDrawerToolbarProps {
   basePath?: string | undefined;
@@ -12,23 +16,31 @@ export const QFDrawerToolbar: React.FC<QFDrawerToolbarProps> = (props) => {
   const history = useHistory();
   const { basePath, resource } = props;
   const refresh = useRefresh();
+  const { id } = useParams<IdParams>();
   const store = useStore();
-  const {
-    admin: { resources },
-  } = store.getState();
-  const listTotal = resources[resource || ""].list.total;
+  let listTotal: number = 0;
+  if (!id) {
+    const {
+      admin: { resources },
+    } = store.getState();
+    listTotal = resources[resource || ""].list.total;
+  }
 
   return (
     <Toolbar {...props}>
-      <SaveButton
-        {...props}
-        onSuccess={() => {
-          history.push(basePath || "/");
-          if (!listTotal) {
-            setTimeout(refresh, 500);
-          }
-        }}
-      />
+      {!!id ? (
+        <SaveButton {...props} />
+      ) : (
+        <SaveButton
+          {...props}
+          onSuccess={() => {
+            history.push(basePath || "/");
+            if (!listTotal) {
+              setTimeout(refresh, 500);
+            }
+          }}
+        />
+      )}
       <Button
         onClick={() => {
           history.push(basePath || "/");

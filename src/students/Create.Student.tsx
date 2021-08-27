@@ -22,7 +22,7 @@ const CreateStudent: React.FC<CreateProps> = (props) => {
       <SimpleForm redirect="/students" toolbar={<QFDrawerToolbar />}>
         <Typography variant="h6">Agregar Estudiante</Typography>
         <div style={{ height: 20 }}>&nbsp;</div>
-        <TextInput source="nombre" autofocus validate={requiredValidate} />
+        <TextInput source="nombre" validate={requiredValidate} />
         <TextInput source="email" validate={emailRequiredValidate} />
         <NumberInput source="edad" validate={ageRequiredValidate} />
         <SelectInput
