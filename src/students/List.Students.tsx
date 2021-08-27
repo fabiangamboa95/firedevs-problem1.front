@@ -38,13 +38,11 @@ const ListStudents: React.FC<ListProps> = (props) => (
     </List>
     <Switch>
       <Route path="/students/create" exact>
-        <div>Rendered create</div>
         <QuickFormDrawer {...props}>
           <CreateStudent {...props} />
         </QuickFormDrawer>
       </Route>
       <Route path="/students/:id">
-        <div>Rendered edit</div>
         <QuickFormDrawer {...props}>
           <EditStudent {...props} />
         </QuickFormDrawer>
