@@ -11,6 +11,7 @@ const ListProfessors: React.FC<ListProps> = (props) => (
       perPage={10}
       title="Listado de Profesores"
       actions={<QFDListActions />}
+      hasCreate
     >
       <Datagrid rowClick="edit">
         <TextField source="nombre" />

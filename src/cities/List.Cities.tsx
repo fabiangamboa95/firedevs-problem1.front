@@ -7,7 +7,13 @@ import QuickFormDrawer, { QFDListActions } from "../utils/QuickFormDrawer";
 
 const ListCities: React.FC<ListProps> = (props) => (
   <>
-    <List {...props} perPage={10} title="Ciudades" actions={<QFDListActions />}>
+    <List
+      {...props}
+      perPage={10}
+      title="Ciudades"
+      actions={<QFDListActions />}
+      hasCreate
+    >
       <Datagrid rowClick="expand" expand={<ShowLocalStudents />}>
         <TextField source="nombre" label="Nombre de la ciudad" />
       </Datagrid>

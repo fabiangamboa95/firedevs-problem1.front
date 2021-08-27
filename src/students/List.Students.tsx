@@ -6,6 +6,7 @@ import {
   NumberField,
   ReferenceField,
   TextField,
+  Empty,
 } from "react-admin";
 import { Route, Switch } from "react-router";
 import QuickFormDrawer, { QFDListActions } from "../utils/QuickFormDrawer";
@@ -19,6 +20,7 @@ const ListStudents: React.FC<ListProps> = (props) => (
       perPage={10}
       title="Listado de Estudiantes"
       actions={<QFDListActions />}
+      hasCreate
     >
       <Datagrid rowClick="edit">
         <TextField source="nombre" />
@@ -36,11 +38,13 @@ const ListStudents: React.FC<ListProps> = (props) => (
     </List>
     <Switch>
       <Route path="/students/create" exact>
+        <div>Rendered create</div>
         <QuickFormDrawer {...props}>
           <CreateStudent {...props} />
         </QuickFormDrawer>
       </Route>
       <Route path="/students/:id">
+        <div>Rendered edit</div>
         <QuickFormDrawer {...props}>
           <EditStudent {...props} />
         </QuickFormDrawer>
